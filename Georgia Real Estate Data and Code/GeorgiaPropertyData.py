@@ -60,11 +60,11 @@ import requests
 # REGION_ZIPS = ["30060", "30062", "30064", "30066", "30067", "30068"]
 
 # # Atlanta Intown (example)
-REGION_NAME = "Atlanta_Intown"
-REGION_ZIPS = [
-    "30303", "30305", "30306", "30307", "30308",
-    "30309", "30312", "30313", "30314", "30318"
-]
+# REGION_NAME = "Atlanta_Intown"
+# REGION_ZIPS = [
+#     "30303", "30305", "30306", "30307", "30308",
+#     "30309", "30312", "30313", "30314", "30318"
+# ]
 
 # # North Fulton (Alpharetta / Roswell / Johns Creek) – example
 # REGION_NAME = "North_Fulton"
@@ -91,8 +91,8 @@ REGION_ZIPS = [
 # REGION_ZIPS = ["30601", "30605", "30606", "30607"]
 
 # # Augusta – example
-# REGION_NAME = "Augusta"
-# REGION_ZIPS = ["30901", "30904", "30907", "30909"]
+REGION_NAME = "Augusta"
+REGION_ZIPS = ["30901", "30904", "30907", "30909"]
 
 # # Savannah – example
 # REGION_NAME = "Savannah"
