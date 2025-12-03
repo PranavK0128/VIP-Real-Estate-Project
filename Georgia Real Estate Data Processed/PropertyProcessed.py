@@ -1,25 +1,11 @@
-#!/usr/bin/env python3
 """
-PropertyProcessed.py
-
 Goal:
 - Read a property CSV from the "Georgia Real Estate Data and Code" folder.
-- Remove rows that do NOT have both:
+- Remove rows that do not have both:
     - sale_date
     - sale_price
-- Save a new CSV with "_processed" added before the .csv extension
+- Save a new CSV with "_Processed" added before the .csv extension
   into the "Georgia Real Estate Data Processed" folder.
-
-Usage (from terminal):
-
-    # From anywhere (paths are based on the script location)
-    python PropertyProcessed.py
-
-    # Then select a file by number OR by name (with or without .csv)
-
-    # Or pass the file name or index directly:
-    python PropertyProcessed.py Athens_PropertyData.csv
-    python PropertyProcessed.py 1
 """
 
 import os
