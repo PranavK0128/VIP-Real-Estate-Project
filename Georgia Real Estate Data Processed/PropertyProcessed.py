@@ -4,8 +4,6 @@ Goal:
 - Remove rows that do not have both:
     - sale_date
     - sale_price
-- Save a new CSV with "_Processed" added before the .csv extension
-  into the "Georgia Real Estate Data Processed" folder.
 """
 
 import os

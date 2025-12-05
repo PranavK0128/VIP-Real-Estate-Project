@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 GeorgiaRealEstateModel.py
 
@@ -13,8 +12,7 @@ Key points in this version:
     * Subsamples training data for tuning.
     * Uses n_jobs=1 (sequential).
     * Then refits best model on FULL training data.
-- Categorical columns are cast to string in the DataFrame before encoding
-  (so OneHotEncoder never sees mixed float/str columns).
+- Categorical columns are cast to string in the DataFrame before encoding.
 - Saves the entire pipeline (preprocessing + model) to:
       georgia_gbdt_model.joblib
 - Shows:
@@ -48,10 +46,7 @@ DO_TUNING = True              # set to False if you want faster runs
 OUTLIER_QUANTILE = 0.995      # drop top 0.5% of sale_price
 N_RANDOM_SEARCH_ITER = 8      # number of random hyperparam combos
 
-# ==================================================
 
-
-# ---------------------------------------------------------------------------
 # Directory helpers
 # ---------------------------------------------------------------------------
 
@@ -168,7 +163,6 @@ def choose_files(csv_files: List[str], processed_dir: str) -> List[str]:
     return chosen_files
 
 
-# ---------------------------------------------------------------------------
 # Data loading & preprocessing
 # ---------------------------------------------------------------------------
 
@@ -332,7 +326,6 @@ def prepare_features_and_target(
     return X, y, numeric_cols, categorical_cols, df
 
 
-# ---------------------------------------------------------------------------
 # Modeling & visualization
 # ---------------------------------------------------------------------------
 
@@ -468,8 +461,8 @@ def train_and_evaluate(
     print(f"  MAE  ($)   : {mae_price:,.2f}")
     print(f"  R^2        : {r2_price:.4f}")
 
-    # ----- Plots -----
 
+    # ----- Plots -----
     # Actual vs Predicted price
     plt.figure(figsize=(6, 6))
     plt.scatter(
@@ -548,7 +541,6 @@ def train_and_evaluate(
     return pipeline, y_test, y_test_pred
 
 
-# ---------------------------------------------------------------------------
 # Main entry
 # ---------------------------------------------------------------------------
 

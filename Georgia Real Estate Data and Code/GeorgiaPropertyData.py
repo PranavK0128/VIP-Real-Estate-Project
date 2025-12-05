@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 GeorgiaPropertyData.py
 
@@ -6,8 +5,7 @@ Goal:
 - Build up an enriched property dataset for a chosen region in Georgia over
   multiple runs *without* reprocessing properties we've already collected.
 
-How it works (same logic as MariettaDataV4.py, but generalized):
-
+How it works:
 - You choose a region at the top via REGION_NAME and REGION_ZIPS.
 - The script:
     1. Uses /propertyapi/v1.0.0/sale/snapshot as the seed list of properties
@@ -29,16 +27,7 @@ How it works (same logic as MariettaDataV4.py, but generalized):
        and flattens all of that into one row.
     5. Appends rows incrementally to the region CSV so you can re-run
        safely across days (important for free-trial limits).
-
-Usage for teammates:
-- Open this file.
-- At the top, scroll to the "CHOOSE YOUR REGION" section.
-- Uncomment ONE (and only one) REGION_NAME / REGION_ZIPS block.
-- Run:
-    python GeorgiaPropertyData.py
-
 - The output CSV will be named: <REGION_NAME>_PropertyData.csv
-  e.g., "Marietta_Cobb_PropertyData.csv", "Atlanta_Intown_PropertyData.csv".
 """
 
 import os
@@ -108,7 +97,6 @@ REGION_ZIPS = ["30901", "30904", "30907", "30909"]
 
 
 # ----------------------- Config -----------------------
-
 #### REPLACE YOUR ATTOM API KEY HERE ####
 API_KEY = os.getenv("ATTOM_API_KEY", "7dc417b696f3970f0b8d293ac7ef1493")
 
@@ -131,7 +119,6 @@ OUTPUT_CSV = f"{REGION_NAME}_PropertyData.csv"
 
 
 # ----------------- HTTP + Numeric Helpers -----------------
-
 
 def _normalize_msg(s: str) -> str:
     s = (s or "").lower().strip()
@@ -329,7 +316,6 @@ def get_attom_id_from_seed(seed_rec: Dict[str, Any]) -> Optional[str]:
 
 
 # ----------------- Field list & flattening -----------------
-
 
 FIELDNAMES = [
     # Identification & location

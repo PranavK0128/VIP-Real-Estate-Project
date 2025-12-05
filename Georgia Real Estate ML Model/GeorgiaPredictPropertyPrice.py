@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 GeorgiaPredictPropertyPrice.py
 
@@ -27,7 +26,6 @@ import pandas as pd
 from joblib import load
 
 
-# ---------------------------------------------------------------------------
 # Helpers to find the processed-data folder
 # ---------------------------------------------------------------------------
 
@@ -175,7 +173,6 @@ def engineer_time_features(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-# ---------------------------------------------------------------------------
 # Prediction logic
 # ---------------------------------------------------------------------------
 
@@ -264,7 +261,6 @@ def select_property(df: pd.DataFrame) -> pd.Series:
 
 
 def main():
-    # ------------------------------------------------------------------
     # 1. Load trained model bundle
     # ------------------------------------------------------------------
     script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -284,7 +280,6 @@ def main():
     print(f"[INFO] Numeric features: {len(numeric_cols)}")
     print(f"[INFO] Categorical features: {len(categorical_cols)}")
 
-    # ------------------------------------------------------------------
     # 2. Load processed CSVs to pick properties from
     # ------------------------------------------------------------------
     processed_dir = get_processed_directory()
@@ -317,7 +312,6 @@ def main():
     if categorical_cols:
         df[categorical_cols] = df[categorical_cols].astype(str)
 
-    # ------------------------------------------------------------------
     # 3. Interactive loop: pick a property and predict its price
     # ------------------------------------------------------------------
     while True:
@@ -361,7 +355,6 @@ def main():
             log_pred_today = pipeline.predict(X_row_today)[0]
             price_pred_today = float(np.exp(log_pred_today))
 
-        # ------------------------------------------------------------------
         # 4. Print results
         # ------------------------------------------------------------------
         print("\n================= PREDICTION RESULT =================")
@@ -402,8 +395,7 @@ def main():
         if "sale_price" in df.columns and pd.notna(row.get("sale_price", None)):
             print(f"Recorded sale_price: ${row['sale_price']:,.0f}")
 
-        print(f"\nModel predicted price (using original sale_date features): "
-              f"${price_pred:,.0f}")
+        print(f"\nModel predicted price (using original sale_date features): "f"${price_pred:,.0f}")
 
         if price_pred_today is not None:
             print(
